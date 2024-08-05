@@ -1,0 +1,140 @@
+﻿<Window x:Class="QuanLiKhoHang.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:uc="clr-namespace:QuanLiKhoHang.QuanLiKhoUserControl"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:QuanLiKhoHang"
+           Title="Register_Window" Height="520" Width="550"
+        Name="Register_Window"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        >
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:UserControl1 Tag="{Binding Title, ElementName=Register_Window}"></uc:UserControl1>
+        </Grid>
+
+        <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Width="450" Height="360" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="6,7,5,10"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <TextBox  Grid.Row="0"
+                  Name="txbUsername"
+                  LostFocus="txbUsername_LostFocus"
+             VerticalAlignment="Center"
+             materialDesign:HintAssist.Hint="Username"
+               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+               />
+                <PasswordBox Grid.Row="1"
+              
+               LostFocus="txbPassword_LostFocus"
+               x:Name="txbPassword"
+               materialDesign:HintAssist.Foreground="Green"
+               materialDesign:HintAssist.Hint="Password"
+               materialDesign:TextFieldAssist.UnderlineBrush="Green"
+               Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                
+                </PasswordBox>
+                <PasswordBox Grid.Row="2"
+                 LostFocus="txbPasswordReEnter_LostFocus"              
+                x:Name="txbPasswordReEnter"
+                materialDesign:HintAssist.Foreground="Green"
+                materialDesign:HintAssist.Hint="Re enter password"
+                materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                
+                </PasswordBox>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                 Name="txbEmail"
+                 LostFocus="txbEmail_LostFocus"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Width="200" 
+            materialDesign:HintAssist.Hint="Email"
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+                    <Button x:Name="btnSendOTP" Click="btnSendOTP_Click_1" HorizontalAlignment="Right" Grid.Column="1" Width="100">Send OTP</Button>
+                </Grid>
+
+                <TextBox Grid.Row="4"
+                 Name="txbOTP"
+             
+            HorizontalAlignment="Left"
+            Width="200"
+            materialDesign:HintAssist.Hint="OTP"
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+               Width="130"
+               Content="Register"
+               Click="btnLogin_Click"
+               Name="btnLogin"
+               Style="{StaticResource MaterialDesignRaisedLightButton}"
+               ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                 />
+                    <Button Grid.Column="1"
+               Width="130"
+               Content="Exit"
+              Name="btnExit"
+               Background="OrangeRed"
+               Style="{StaticResource MaterialDesignRaisedLightButton}"
+               ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                 />
+                    <Button Grid.Column="2"
+                    Width="130"
+                    Content="Return Login"
+                    Click="btnReturnLogin_Click"
+                    Name="btnReturnLogin"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                      />
+                </Grid>
+            </Grid>
+
+        </materialDesign:Card>
+    </Grid>
+</Window>

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="QuanLiKhoHang.QuanLiKhoUserControl.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLiKhoHang.QuanLiKhoUserControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+                x:Name="ucControlBar"
+             
+      
+
+              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+              TextElement.FontWeight="Regular"
+              TextElement.FontSize="13"
+              TextOptions.TextFormattingMode="Ideal"
+              TextOptions.TextRenderingMode="Auto"
+              Background="{DynamicResource MaterialDesignPaper}"
+              FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown" >
+            <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" 
+                 CommandParameter="{Binding ElementName=ucControlBar}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+                <materialDesign:ColorZone Height="50"
+          Padding="0"
+          Mode="PrimaryLight"
+                >
+            <DockPanel LastChildFill="False">
+
+                    <TextBlock 
+                        Margin="10"
+              VerticalAlignment="Center"
+              FontWeight="Bold"
+              FontFamily="Arial" FontSize="17" Foreground="Azure"
+              Text="{Binding Tag, ElementName=ucControlBar}" />
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Background="Transparent">
+                    <Button
+                        Background="ForestGreen"
+                        Command="{Binding MinimizeWindow}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                      Content="{materialDesign:PackIcon Kind=WindowMinimize}"
+                      ToolTip="" />
+                    <Button
+                        Background="ForestGreen"
+                        Margin="07,0,0,0"
+                        Command="{Binding MaximizeWindow}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                      Content="{materialDesign:PackIcon Kind=WindowMaximize}"
+                      ToolTip="" />
+                    <Button
+                        Margin="7,0,0,0"
+                        Background="OrangeRed"
+                        Command="{Binding CloseWindow}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                      Content="{materialDesign:PackIcon Kind=Close}"
+                      ToolTip="" /> 
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+    </Grid>
+</UserControl>
